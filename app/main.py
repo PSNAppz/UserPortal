@@ -64,7 +64,7 @@ async def register_user(
             profile_pictures_directory, profile_pic_filename
         )
 
-        # Save profile picture to disk
+        # Save profile picture to disk (Can be replaced with cloud storage)
         with open(profile_pic_path, "wb") as buffer:
             shutil.copyfileobj(profile_picture.file, buffer)
         profile_picture.file.close()
@@ -94,7 +94,9 @@ async def get_user(user_id: int, db: Session = Depends(get_db)):
         profile_info.get("profile_picture_path") if profile_info else None
     )
 
+    # Make sure the response includes all the fields defined in the response model
     return {
+        "id": db_user.id,
         "full_name": db_user.full_name,
         "email": db_user.email,
         "phone": db_user.phone,

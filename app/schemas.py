@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr
+from typing import Optional
 
 
 class UserCreate(BaseModel):
@@ -13,3 +14,4 @@ class User(BaseModel):
     full_name: str
     email: EmailStr
     phone: str
+    profile_picture_path: Optional[str]
