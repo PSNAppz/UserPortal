@@ -7,6 +7,7 @@ import os
 
 load_dotenv()
 
+
 # PostgreSQL Database Connection
 SQLALCHEMY_DATABASE_URL = (
     f"postgresql://{os.getenv('POSTGRES_USER')}:"

@@ -7,6 +7,14 @@ import shutil
 
 app = FastAPI()
 
+# Uncomment the below code to create the tables in the database for
+# the first time the application is run
+
+# from .database import engine
+# from . import models
+
+# models.Base.metadata.create_all(bind=engine)
+
 
 # Dependency to get the DB session
 def get_db():
